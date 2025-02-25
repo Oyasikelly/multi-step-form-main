@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar with steps -->
+      <div class="sidebar">
+        <ul class="steps">
+          <li class="step active">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <span class="step-label">Step 1</span>
+              <span class="step-title">Your info</span>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <span class="step-label">Step 2</span>
+              <span class="step-title">Select plan</span>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <span class="step-label">Step 3</span>
+              <span class="step-title">Add-ons</span>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <span class="step-label">Step 4</span>
+              <span class="step-title">Summary</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main content -->
+      <div class="content-container">
+        <!-- Step 1: Personal Info -->
+        <div class="form-step active" id="step1">
+          <h1 class="step-title-main">Personal info</h1>
+          <p class="step-description">
+            Please provide your name, email address, and phone number.
+          </p>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              value="kelly"
+              id="name"
+              placeholder="e.g. Stephen King"
+            />
+            <p class="error-msg" id="name-error">This field is required</p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="e.g. stephenking@lorem.com"
+            />
+            <p class="error-msg" id="email-error">This field is required</p>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="e.g. +1 234 567 890" />
+            <p class="error-msg" id="phone-error">This field is required</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Select Plan -->
+        <div class="form-step" id="step2">
+          <h1 class="step-title-main">Select your plan</h1>
+          <p class="step-description">
+            You have the option of monthly or yearly billing.
+          </p>
+
+          <div class="plan-options">
+            <div
+              class="plan-option"
+              data-plan="arcade"
+              data-price-monthly="9"
+              data-price-yearly="90"
+            >
+              <div class="plan-icon arcade-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                >
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      fill="#FFF"
+                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <div>
+                <div class="plan-name">Arcade</div>
+                <div class="plan-price">$9/mo</div>
+                <div class="plan-promo">2 months free</div>
+              </div>
+            </div>
+
+            <div
+              class="plan-option"
+              data-plan="advanced"
+              data-price-monthly="12"
+              data-price-yearly="120"
+            >
+              <div class="plan-icon advanced-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                >
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      fill="#FFF"
+                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <div>
+                <div class="plan-name">Advanced</div>
+                <div class="plan-pri ce">$12/mo</div>
+                <div class="plan-promo">2 months free</div>
+              </div>
+            </div>
+
+            <div
+              class="plan-option"
+              data-plan="pro"
+              data-price-monthly="15"
+              data-price-yearly="150"
+            >
+              <div class="plan-icon pro-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                >
+                  <g fill="none" fill-rule="evenodd">
+                    <path
+                      fill="#FFF"
+                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">$15/mo</div>
+                <div class="plan-promo">2 months free</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="toggle-container">
+            <span class="billing-option active" id="monthly">Monthly</span>
+            <div class="toggle-switch" id="billing-toggle">
+              <div class="toggle-slider"></div>
+            </div>
+            <span class="billing-option" id="yearly">Yearly</span>
+          </div>
+        </div>
+
+        <!-- Step 3: Add-ons -->
+        <div class="form-step" id="step3">
+          <h1 class="step-title-main">Pick add-ons</h1>
+          <p class="step-description">
+            Add-ons help enhance your gaming experience.
+          </p>
+
+          <div
+            class="addon-option"
+            data-addon="online"
+            data-price-monthly="1"
+            data-price-yearly="10"
+          >
+            <input type="checkbox" class="addon-checkbox" />
+            <div class="addon-info">
+              <div class="addon-name">Online service</div>
+              <div class="addon-description">Access to multiplayer games</div>
+            </div>
+            <div class="addon-price">+$1/mo</div>
+          </div>
+
+          <div
+            class="addon-option"
+            data-addon="storage"
+            data-price-monthly="2"
+            data-price-yearly="20"
+          >
+            <input type="checkbox" class="addon-checkbox" />
+            <div class="addon-info">
+              <div class="addon-name">Larger storage</div>
+              <div class="addon-description">Extra 1TB of cloud save</div>
+            </div>
+            <div class="addon-price">+$2/mo</div>
+          </div>
+
+          <div
+            class="addon-option"
+            data-addon="profile"
+            data-price-monthly="2"
+            data-price-yearly="20"
+          >
+            <input type="checkbox" class="addon-checkbox" />
+            <div class="addon-info">
+              <div class="addon-name">Customizable profile</div>
+              <div class="addon-description">Custom theme on your profile</div>
+            </div>
+            <div class="addon-price">+$2/mo</div>
+          </div>
+        </div>
+
+        <!-- Step 4: Summary -->
+        <div class="form-step" id="step4">
+          <h1 class="step-title-main">Finishing up</h1>
+          <p class="step-description">
+            Double-check everything looks OK before confirming.
+          </p>
+
+          <div class="summary-box">
+            <div class="plan-summary">
+              <div>
+                <div class="plan-summary-name">Arcade (Monthly)</div>
+                <div class="change-plan">Change</div>
+              </div>
+              <div class="plan-summary-price">$9/mo</div>
+            </div>
+
+            <div id="addons-summary-container">
+              <!-- Addon summaries will be added here dynamically -->
+            </div>
+          </div>
+
+          <div class="total-summary">
+            <div class="total-label">Total (per month)</div>
+            <div class="total-price">$12/mo</div>
+          </div>
+        </div>
+
+        <!-- Step 5: Thank You -->
+        <div class="form-step" id="step5">
+          <div class="thank-you">
+            <div class="thank-you-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+              >
+                <circle cx="40" cy="40" r="40" fill="#F9818E" />
+                <path
+                  d="M48.464 26.0732L55.9398 33.5498L34.5561 54.928L24.5 44.8711L31.9772 37.3945L34.5561 39.9741L48.464 26.0732Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <h1 class="thank-you-title">Thank you!</h1>
+            <p class="thank-you-message">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="form-navigation">
+          <button class="btn btn-back" id="btn-back" style="visibility: hidden">
+            Go Back
+          </button>
+          <button class="btn btn-next" id="btn-next">Next Step</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Variables
+        let currentStep = 1;
+        const totalSteps = 4;
+        let billingCycle = "monthly"; // 'monthly' or 'yearly'
+        let selectedPlan = null;
+        let selectedAddons = [];
+
+        // DOM Elements
+        const steps = document.querySelectorAll(".step");
+        const formSteps = document.querySelectorAll(".form-step");
+        const btnBack = document.getElementById("btn-back");
+        const btnNext = document.getElementById("btn-next");
+        const billingToggle = document.getElementById("billing-toggle");
+        const monthlyLabel = document.getElementById("monthly");
+        const yearlyLabel = document.getElementById("yearly");
+        const planOptions = document.querySelectorAll(".plan-option");
+        const addonOptions = document.querySelectorAll(".addon-option");
+        const changePlanBtn = document.querySelector(".change-plan");
+
+        // Form Inputs
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const phoneInput = document.getElementById("phone");
+
+        function handleSteps(step) {
+          switch (step) {
+            case 1:
+              console.log("step 1");
+              // document.getElementById("step1").style.display = "column";
+              break;
+            case 2:
+              console.log("step 2");
+              // document.getElementById("step2").style.display = "column";
+              break;
+            case 3:
+              console.log("step 3");
+              // document.getElementById("step3").style.display = "column";
+              break;
+            case 4:
+              console.log("step 4");
+              // document.getElementById("step4").style.display = "column";
+              break;
+            default:
+              currentStep = 1;
+              break;
+          }
+        }
+
+        btnNext.addEventListener("click", () => {
+          handleSteps(currentStep++);
+
+          const stepContent = document.getElementById(`step${currentStep}`);
+          document.querySelectorAll(".step").forEach((step) => {
+            if (step.innerHTML.includes(currentStep)) {
+              step.classList.add("active");
+            } else {
+              step.classList.remove("active");
+            }
+          });
+          document.querySelectorAll(".form-step").forEach((step) => {
+            step.classList.remove("active");
+          });
+          stepContent.classList.add("active");
+        });
+
+        // // Initialize
+        // updateNavButtons();
+
+        // // Event Listeners
+        // btnNext.addEventListener("click", nextStep);
+        // btnBack.addEventListener("click", prevStep);
+
+        // // Billing toggle event
+        // // billingToggle.addEventListener("click", toggleBillingCycle);
+
+        // // Plan selection events
+        // planOptions.forEach((plan) => {
+        //   plan.addEventListener("click", function () {
+        //     selectPlan(this);
+        //   });
+        // });
+
+        // // Add-on selection events
+        // addonOptions.forEach((addon) => {
+        //   addon.addEventListener("click", function (e) {
+        //     if (e.target !== this.querySelector(".addon-checkbox")) {
+        //       const checkbox = this.querySelector(".addon-checkbox");
+        //       checkbox.checked = !checkbox.checked;
+        //     }
+        //     toggleAddon(this);
+        //   });
+        // });
+
+        // // Change plan button
+        // changePlanBtn.addEventListener("click", function () {
+        //   goToStep(2);
+        // });
+
+        // // Functions
+        // function nextStep() {
+        //   if (currentStep === 1) {
+        //     if (!validateStep1()) return;
+        //   }
+
+        //   if (currentStep === 2 && !selectedPlan) {
+        //     alert("Please select a plan to continue.");
+        //     return;
+        //   }
+
+        //   if (currentStep === 4) {
+        //     btnNext.classList.remove("btn-next");
+        //     btnNext.classList.add("btn-confirm");
+        //     btnNext.textContent = "Confirm";
+        //   }
+
+        //   if (currentStep === totalSteps) {
+        //     // Show Thank You page
+        //     goToStep(5);
+        //     // Hide navigation
+        //     document.querySelector(".form-navigation").style.display = "none";
+        //     return;
+        //   }
+
+        //   if (currentStep < totalSteps) {
+        //     goToStep(currentStep + 1);
+        //   }
+        // }
+
+        // function prevStep() {
+        //   if (currentStep > 1) {
+        //     goToStep(currentStep - 1);
+        //   }
+        // }
+
+        // function goToStep(stepNumber) {
+        //   // Update current step
+        //   currentStep = stepNumber;
+
+        //   // Update step indicators
+        //   steps.forEach((step, index) => {
+        //     if (index + 1 === currentStep) {
+        //       step.classList.add("active");
+        //     } else {
+        //       step.classList.remove("active");
+        //     }
+        //   });
+
+        //   // Show current form step
+        //   formSteps.forEach((formStep, index) => {
+        //     if (index + 1 === currentStep) {
+        //       formStep.classList.add("active");
+        //     } else {
+        //       formStep.classList.remove("active");
+        //     }
+        //   });
+
+        //   // Reset confirm button if not on last step
+        //   if (currentStep !== totalSteps) {
+        //     btnNext.classList.remove("btn-confirm");
+        //     btnNext.classList.add("btn-next");
+        //     btnNext.textContent = "Next Step";
+        //   } else {
+        //     btnNext.classList.remove("btn-next");
+        //     btnNext.classList.add("btn-confirm");
+        //     btnNext.textContent = "Confirm";
+        //   }
+
+        //   // Update navigation buttons
+        //   updateNavButtons();
+        // }
+
+        // function updateNavButtons() {
+        //   if (currentStep === 1) {
+        //     btnBack.style.visibility = "hidden";
+        //   }
+        // }
+      });
+    </script>
+
+    <!-- //
+   <style>
+     //     .attribution { font-size: 11px; text-align: center; }
+     //     .attribution a { color: hsl(228, 45%, 44%); }
+     //
+   </style>
+   //
+   <div class="attribution">
+     // Challenge by
+     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+       >Frontend Mentor</a
+     >. // Coded by <a href="#">Your Name Here</a>. //
+   </div> -->
+  </body>
+</html>
