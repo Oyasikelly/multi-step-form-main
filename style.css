@@ -241,6 +241,36 @@ input.error {
   margin-bottom: 32px;
 }
 
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background-color: #02295a;
+  border-radius: 12px;
+  margin: 0 16px;
+  cursor: pointer;
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  left: 4px;
+  top: 4px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-slider.yearly-active {
+  transform: translateX(24px);
+}
+
+.billing-option.active {
+  color: #02295a;
+  font-weight: bold;
+}
+
 .billing-option {
   color: var(--cool-gray);
   font-weight: 500;

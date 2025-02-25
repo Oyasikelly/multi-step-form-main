@@ -94,19 +94,7 @@
               data-price-yearly="90"
             >
               <div class="plan-icon arcade-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                >
-                  <g fill="none" fill-rule="evenodd">
-                    <path
-                      fill="#FFF"
-                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
-                    />
-                  </g>
-                </svg>
+                <img src="/assets/images/icon-arcade.svg" />
               </div>
               <div>
                 <div class="plan-name">Arcade</div>
@@ -122,19 +110,7 @@
               data-price-yearly="120"
             >
               <div class="plan-icon advanced-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                >
-                  <g fill="none" fill-rule="evenodd">
-                    <path
-                      fill="#FFF"
-                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
-                    />
-                  </g>
-                </svg>
+                <img src="/assets/images/icon-advanced.svg" />
               </div>
               <div>
                 <div class="plan-name">Advanced</div>
@@ -150,19 +126,7 @@
               data-price-yearly="150"
             >
               <div class="plan-icon pro-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                >
-                  <g fill="none" fill-rule="evenodd">
-                    <path
-                      fill="#FFF"
-                      d="M20,20 C21.1045695,20 22,19.1045695 22,18 C22,16.8954305 21.1045695,16 20,16 C18.8954305,16 18,16.8954305 18,18 C18,19.1045695 18.8954305,20 20,20 Z"
-                    />
-                  </g>
-                </svg>
+                <img src="/assets/images/icon-pro.svg" />
               </div>
               <div>
                 <div class="plan-name">Pro</div>
@@ -295,186 +259,7 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Variables
-        let currentStep = 1;
-        const totalSteps = 4;
-        let billingCycle = "monthly"; // 'monthly' or 'yearly'
-        let selectedPlan = null;
-        let selectedAddons = [];
-
-        // DOM Elements
-        const steps = document.querySelectorAll(".step");
-        const formSteps = document.querySelectorAll(".form-step");
-        const btnBack = document.getElementById("btn-back");
-        const btnNext = document.getElementById("btn-next");
-        const billingToggle = document.getElementById("billing-toggle");
-        const monthlyLabel = document.getElementById("monthly");
-        const yearlyLabel = document.getElementById("yearly");
-        const planOptions = document.querySelectorAll(".plan-option");
-        const addonOptions = document.querySelectorAll(".addon-option");
-        const changePlanBtn = document.querySelector(".change-plan");
-
-        // Form Inputs
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const phoneInput = document.getElementById("phone");
-
-        function handleSteps(step) {
-          switch (step) {
-            case 1:
-              console.log("step 1");
-              // document.getElementById("step1").style.display = "column";
-              break;
-            case 2:
-              console.log("step 2");
-              // document.getElementById("step2").style.display = "column";
-              break;
-            case 3:
-              console.log("step 3");
-              // document.getElementById("step3").style.display = "column";
-              break;
-            case 4:
-              console.log("step 4");
-              // document.getElementById("step4").style.display = "column";
-              break;
-            default:
-              currentStep = 1;
-              break;
-          }
-        }
-
-        btnNext.addEventListener("click", () => {
-          handleSteps(currentStep++);
-
-          const stepContent = document.getElementById(`step${currentStep}`);
-          document.querySelectorAll(".step").forEach((step) => {
-            if (step.innerHTML.includes(currentStep)) {
-              step.classList.add("active");
-            } else {
-              step.classList.remove("active");
-            }
-          });
-          document.querySelectorAll(".form-step").forEach((step) => {
-            step.classList.remove("active");
-          });
-          stepContent.classList.add("active");
-        });
-
-        // // Initialize
-        // updateNavButtons();
-
-        // // Event Listeners
-        // btnNext.addEventListener("click", nextStep);
-        // btnBack.addEventListener("click", prevStep);
-
-        // // Billing toggle event
-        // // billingToggle.addEventListener("click", toggleBillingCycle);
-
-        // // Plan selection events
-        // planOptions.forEach((plan) => {
-        //   plan.addEventListener("click", function () {
-        //     selectPlan(this);
-        //   });
-        // });
-
-        // // Add-on selection events
-        // addonOptions.forEach((addon) => {
-        //   addon.addEventListener("click", function (e) {
-        //     if (e.target !== this.querySelector(".addon-checkbox")) {
-        //       const checkbox = this.querySelector(".addon-checkbox");
-        //       checkbox.checked = !checkbox.checked;
-        //     }
-        //     toggleAddon(this);
-        //   });
-        // });
-
-        // // Change plan button
-        // changePlanBtn.addEventListener("click", function () {
-        //   goToStep(2);
-        // });
-
-        // // Functions
-        // function nextStep() {
-        //   if (currentStep === 1) {
-        //     if (!validateStep1()) return;
-        //   }
-
-        //   if (currentStep === 2 && !selectedPlan) {
-        //     alert("Please select a plan to continue.");
-        //     return;
-        //   }
-
-        //   if (currentStep === 4) {
-        //     btnNext.classList.remove("btn-next");
-        //     btnNext.classList.add("btn-confirm");
-        //     btnNext.textContent = "Confirm";
-        //   }
-
-        //   if (currentStep === totalSteps) {
-        //     // Show Thank You page
-        //     goToStep(5);
-        //     // Hide navigation
-        //     document.querySelector(".form-navigation").style.display = "none";
-        //     return;
-        //   }
-
-        //   if (currentStep < totalSteps) {
-        //     goToStep(currentStep + 1);
-        //   }
-        // }
-
-        // function prevStep() {
-        //   if (currentStep > 1) {
-        //     goToStep(currentStep - 1);
-        //   }
-        // }
-
-        // function goToStep(stepNumber) {
-        //   // Update current step
-        //   currentStep = stepNumber;
-
-        //   // Update step indicators
-        //   steps.forEach((step, index) => {
-        //     if (index + 1 === currentStep) {
-        //       step.classList.add("active");
-        //     } else {
-        //       step.classList.remove("active");
-        //     }
-        //   });
-
-        //   // Show current form step
-        //   formSteps.forEach((formStep, index) => {
-        //     if (index + 1 === currentStep) {
-        //       formStep.classList.add("active");
-        //     } else {
-        //       formStep.classList.remove("active");
-        //     }
-        //   });
-
-        //   // Reset confirm button if not on last step
-        //   if (currentStep !== totalSteps) {
-        //     btnNext.classList.remove("btn-confirm");
-        //     btnNext.classList.add("btn-next");
-        //     btnNext.textContent = "Next Step";
-        //   } else {
-        //     btnNext.classList.remove("btn-next");
-        //     btnNext.classList.add("btn-confirm");
-        //     btnNext.textContent = "Confirm";
-        //   }
-
-        //   // Update navigation buttons
-        //   updateNavButtons();
-        // }
-
-        // function updateNavButtons() {
-        //   if (currentStep === 1) {
-        //     btnBack.style.visibility = "hidden";
-        //   }
-        // }
-      });
-    </script>
+    <script src="/main.js"></script>
 
     <!-- //
    <style>
